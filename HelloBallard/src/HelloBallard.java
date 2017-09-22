@@ -5,7 +5,7 @@ public class HelloBallard {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello Ballard!!!!");
+        System.out.println("Hello Ballard!");
 
     }
 
