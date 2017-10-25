@@ -15,5 +15,10 @@ public class PictureExercise
         // Use Picture methods & print\println to print out the height and width of your picture HERE
 
 
+
+
+
+        System.out.println(x);
+
     }
 }

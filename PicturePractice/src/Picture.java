@@ -146,10 +146,7 @@ public class Picture
      * Gets the rightmost x-position of the shape.
      * @return the rightmost x-position
      */
-    public int getMaxX()
-    {
-        return getX() + getWidth();
-    }
+    public int getMaxX() { return getX() + getWidth(); }
 
     /**
      * Gets the bottommost y-position of the shape.
