@@ -13,12 +13,12 @@ public class PictureExercise
         
         
         // Use Picture methods & print\println to print out the height and width of your picture HERE
+        double x = clouds.getHeight();
+        double y  = clouds.getWidth();
+        //uses methods to set two variables x and y to the values of height
 
-
-
-
-
-        System.out.println(x);
-
+        // Provides user with info and height/width
+        System.out.println("Your height is "+ x);
+        System.out.println("Your width is "+ y );
     }
 }
