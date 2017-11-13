@@ -5,8 +5,8 @@ public class CryptographyMain
 {
     public static void main (String [] args)
     {
-        //String encryptedCode = "the cat in the hat!";
-         String encryptedCode = "abcdefghijklmnopqrstuvwxyz";   // Try this to test out your code too.
+        String encryptedCode = "the cat in the hat!";
+         //String encryptedCode = "abcdefghijklmnopqrstuvwxyz";   // Try this to test out your code too.
 
         encryptedCode = encryptedCode.toUpperCase(); // only deal with uppercased letters.
         Cryptography cryptoTool = new Cryptography();
@@ -20,7 +20,7 @@ public class CryptographyMain
 
             if ((letter >= 'A') && (letter <= 'Z'))
             {
-                System.out.print(cryptoTool.convertToNumbers(letter) + " ");     //<--this calls your code.  Adds a space between each number.
+                //System.out.print(cryptoTool.convertToNumbers(letter) + " ");     //<--this calls your code.  Adds a space between each number.
                 System.out.print(cryptoTool.applyRotation(letter));     //<--comment the above and uncomment the second part.
             }
             else
@@ -32,3 +32,4 @@ public class CryptographyMain
         }
     }
 }
+//>_<
