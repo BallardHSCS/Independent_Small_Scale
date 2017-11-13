@@ -12,26 +12,17 @@ public class BooleanLogic {
         Uncomment as you go to test this.
          */
 
-        if (inputOne(1>4,3==5, 1<0,0==-9)){
+        if (inputOne(false,true,false,true)){
             System.out.println("Winner!");
             score++;
         }
-        else{
-            System.out.println("Try again");
-
-
-
-        if(inputTwo(1==1, 2==2,3==3,4==4)){
-            System.out.println("Winner!");
-            score++;
-        }
-        else{
+        else {
             System.out.println("Try again");
         }
 
 
 
-        if (inputThree()){
+        if(inputTwo(false, true,true,true)){
             System.out.println("Winner!");
             score++;
         }
@@ -41,7 +32,17 @@ public class BooleanLogic {
 
 
 
-        if (inputFour()){
+        if (inputThree(false,true, false,true)){
+            System.out.println("Winner!");
+            score++;
+        }
+        else{
+            System.out.println("Try again");
+        }
+
+
+
+        if (inputFour(false, false, true, true)){
             System.out.println("Winner!");
             score++;
         }
@@ -123,7 +124,7 @@ public class BooleanLogic {
         }
 
         System.out.println("Score: " + score + "/12");
-    }}
+    }
 
     public static boolean inputOne(boolean one, boolean two, boolean three, boolean four){
         if ((one && two && !three) || (four && (two || three) && two ) || (one && three)){
