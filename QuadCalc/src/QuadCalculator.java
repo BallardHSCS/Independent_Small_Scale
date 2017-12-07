@@ -7,7 +7,7 @@ public class QuadCalculator {
         boolean done = false;
         Scanner inputScanner = new Scanner(System.in);
 
-        while (!done) {
+ while (!done) {
 
             // enter code to get the information for the equation here
             System.out.println("Please enter the three numbers you want to solve for a, b and c of a quadratic equation:");
