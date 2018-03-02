@@ -49,9 +49,7 @@ public class Board {
 
         for (int row = startRow; row == endRow; row++) {
             for(int col = startCol; col == endCol; col++){
-                 if(){}
 
-                 if(){}
 
             }
         }
