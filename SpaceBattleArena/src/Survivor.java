@@ -1,68 +1,65 @@
-import ihs.apcs.spacebattle.BasicEnvironment;
-import ihs.apcs.spacebattle.BasicSpaceship;
-import ihs.apcs.spacebattle.ObjectStatus;
+import ihs.apcs.spacebattle.*;
 import ihs.apcs.spacebattle.Point;
-import ihs.apcs.spacebattle.RegistrationData;
-import ihs.apcs.spacebattle.commands.BrakeCommand;
-import ihs.apcs.spacebattle.commands.RotateCommand;
-import ihs.apcs.spacebattle.commands.ShipCommand;
-import ihs.apcs.spacebattle.commands.ThrustCommand;
+import ihs.apcs.spacebattle.commands.*;
 
 import java.awt.*;
 
-public class Survivor {
 
 //http://mikeware.github.io/SpaceBattleArena/client/java_doc/index.html?ihs/apcs/spacebattle/commands/package-summary.html
-
-
-/*   public class ExampleShip extends BasicSpaceship {
+    public class Survivor extends BasicSpaceship {
         private int width;
         private int height;
-        private States baseState= States.ROTATE;
+        private States baseState= States.FIRE;
+        private RadarResults radar;
+
         @Override
+
+
         public RegistrationData registerShip(int numImages, int worldWidth, int worldHeight) {
             height = worldHeight;
             width = worldWidth;
-            return new RegistrationData("Gran Kippler", new Color(0, 160, 171), 0);
+            return new RegistrationData("Peace Ship", new Color(0, 160, 171), 0);
 
 
         }
 
+
+
         @Override
         public ShipCommand getNextCommand(BasicEnvironment env) {
-
             ObjectStatus shipStatus = env.getShipStatus();
-            ihs.apcs.spacebattle.Point shipPosition = shipStatus.getPosition();
-            ihs.apcs.spacebattle.Point center = new Point((width / 2), (height / 2));
-
-            double getDistanceFromCenter = shipPosition.getDistanceTo(center);
+            Point shipPosition = shipStatus.getPosition();
+            int radarRange = shipStatus.getRadarRange();
             int orientation = shipStatus.getOrientation();
-            System.out.println(getDistanceFromCenter + "\n");
-            int getAngleFromCenter = shipPosition.getAngleTo(center);
-            System.out.println(getAngleFromCenter);
-            ShipCommand returned = new RotateCommand(getAngleFromCenter);
+            System.out.println(orientation);
+
+            ShipCommand returned = new FireTorpedoCommand('F');
 
             switch (baseState) {
 
                 case THRUST:
+                    baseState = States.ROTATE;
+                    return new ThrustCommand('B', 1, .25);
 
-                    if (getDistanceFromCenter <= 50)
-                    {
-                        baseState = States.STOP;
-                    }
-                    return new ThrustCommand('F', getDistanceFromCenter, 1.0);
+
+
 
                 case STOP:
+                        returned = new BrakeCommand(0);
 
-                    returned = new BrakeCommand(0);
+
+                case FIRE:
+                    baseState = States.THRUST;
+                    return new DeploySpaceMineCommand(4);
+
 
 
                 case ROTATE:
-                    if(getAngleFromCenter != 0) {
-                        returned = new RotateCommand(getAngleFromCenter - orientation);
-                    }
 
-                    baseState = States.THRUST;
+                        returned = new RotateCommand(orientation -100);
+
+
+                    baseState = States.FIRE;
             }
 
             return returned;
@@ -71,9 +68,8 @@ public class Survivor {
         public enum States {
 
             THRUST,
+            ROTATE,
             STOP,
-            ROTATE
-        }
-    }
-}
-*/}
+            FIRE
+        }}
+
