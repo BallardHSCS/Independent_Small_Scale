@@ -47,9 +47,11 @@ public class Board {
             endCol = boardArray.length;
         }
 
-        for (int row = startRow; row == endRow; row++) {
+        for (int row =startRow; row == endRow; row++) {
             for(int col = startCol; col == endCol; col++){
-
+                if(boardArray[row][col].contains("#")){
+                    neighborCount++;
+                }
 
             }
         }
