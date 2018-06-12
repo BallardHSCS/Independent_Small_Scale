@@ -7,6 +7,8 @@ public class Life {
 		Board allCells = new Board("sampleData.txt");
 
 		// Test printing out the cells
-		System.out.println(allCells);
+		while(true){
+			System.out.println(allCells.nextBoard());
+		}
 	}
 }

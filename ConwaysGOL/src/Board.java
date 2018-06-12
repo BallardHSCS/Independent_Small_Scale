@@ -59,6 +59,18 @@ public class Board {
 
         return neighborCount;
     }
+    public  String[][] nextBoard(){
+        for(int row = 0; row < boardArray.length; row++){
+            for(int col = 0; col < boardArray[row].length; col++){
+                if(getNeighbors(row, col)< 3){
 
+                }
+            }
+        }
+
+        String[][] newBoard = boardArray;
+
+        return newBoard;
+    }
 
 }
