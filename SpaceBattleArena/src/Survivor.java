@@ -1,16 +1,20 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import ihs.apcs.spacebattle.*;
 import ihs.apcs.spacebattle.Point;
 import ihs.apcs.spacebattle.commands.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 //http://mikeware.github.io/SpaceBattleArena/client/java_doc/index.html?ihs/apcs/spacebattle/commands/package-summary.html
     public class Survivor extends BasicSpaceship {
         private int width;
         private int height;
-        private States baseState= States.FIRE;
-        private RadarResults radar;
+        private States baseState= States.RADAR;
+        private RadarResults radarResults;
+        private List asteroids;
 
         @Override
 
@@ -30,36 +34,46 @@ import java.awt.*;
             ObjectStatus shipStatus = env.getShipStatus();
             Point shipPosition = shipStatus.getPosition();
             int radarRange = shipStatus.getRadarRange();
-            int orientation = shipStatus.getOrientation();
-            System.out.println(orientation);
+            int numObs;
 
-            ShipCommand returned = new FireTorpedoCommand('F');
+
+            ShipCommand returned = new RadarCommand(4);
 
             switch (baseState) {
 
+                case RADAR:
+                    returned = new RadarCommand(4);
+                    radarResults = env.getRadar();
+                    asteroids = radarResults.getByType("Asteroid");
+                    System.out.println();
+
+                    break;
+
                 case THRUST:
                     baseState = States.ROTATE;
-                    return new ThrustCommand('B', 1, .25);
+                    returned = new ThrustCommand('B', 1, .5);
+                    break;
 
 
 
 
                 case STOP:
                         returned = new BrakeCommand(0);
+                        break;
 
 
-                case FIRE:
+                case MINE:
                     baseState = States.THRUST;
-                    return new DeploySpaceMineCommand(4);
-
+                    returned = new DeploySpaceMineCommand( 1);
+                    break;
 
 
                 case ROTATE:
 
-                        returned = new RotateCommand(orientation -100);
+                        returned = new RotateCommand(100);
 
 
-                    baseState = States.FIRE;
+                    baseState = States.MINE;
             }
 
             return returned;
@@ -70,6 +84,7 @@ import java.awt.*;
             THRUST,
             ROTATE,
             STOP,
-            FIRE
+            MINE,
+            RADAR
         }}
 

@@ -4,18 +4,21 @@ public class SavingsAccount extends BankAccount {
 
 
     public SavingsAccount(){
-        super(0);
+        balance = 0;
     }
 
     public SavingsAccount(double startingBalance){
         balance = startingBalance;
     }
 
+
+
+
     //gets the balance
 
     public double getBalance(){
 
-        return balance;
+        return super.getBalance();
     }
 
 
@@ -29,7 +32,13 @@ public class SavingsAccount extends BankAccount {
     }
     //makes withdrawal
     public void makeWithdrawal(double amount){
-        balance -= amount;
+        super.makeWithdrawal(amount);
+    }
+
+    @Override
+    public String toString() {
+        return "Current Balance: " + balance;
     }
 }
+
 

@@ -8,7 +8,7 @@ public class SpaceBattleArena {
     public static void main(String[] args) {
         String myServer = "10.56.65.169";
         String screenServer = "10.56.98.52";
-        TextClient.run(screenServer, new Survivor());
+        TextClient.run(myServer, new Survivor());
 
     }
 
