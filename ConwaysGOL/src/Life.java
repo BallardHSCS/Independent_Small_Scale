@@ -1,6 +1,7 @@
 import java.io.*;
-
+import java.lang.Thread;
 public class Life {
+
 	public static void main(String[] args)
 	{
 		// Create a Board, using a filename.
@@ -8,7 +9,7 @@ public class Life {
 
 		// Test printing out the cells
 		while(true){
-			System.out.println(allCells.nextBoard());
+			System.out.println(allCells);
 		}
 	}
 }

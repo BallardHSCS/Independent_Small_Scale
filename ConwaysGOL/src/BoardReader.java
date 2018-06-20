@@ -4,11 +4,7 @@ import java.util.Scanner;
 public class BoardReader {
 	Scanner input;
 	String currentLine;
-	/**
-	 * Initializes this board reader, given a file.
-	 * @parampath to the file to read.
-	 * @throws FileNotFoundException
-	 */
+
 	public BoardReader(String fileName)
 	{
 		try 
@@ -23,11 +19,7 @@ public class BoardReader {
 		currentLine = "";
 	}
 	
-	/** Reads the next character as a String.
-	    @return Returns the next character in this file as a string.  
-                    Returns "end" if the end of the file has been reached.
-	    
-	    */
+
 	public String getNextCell()
 	{
 		//the line's empty, grab another one.
